@@ -1,4 +1,4 @@
-package org.puchori.springex_20250826.mapper;
+package org.puchori.springProject.mapper;
 
 import org.apache.ibatis.annotations.Select;
 

@@ -51,3 +51,16 @@ select * from tbl_member where mid = 'user00' and mpw = '1111';
 fde7c952-5650-4a24-a871-b81786e34342
 
     4d26b01b-3ac1-438b-a3e6-63c2347f0cd9
+
+
+drop table tbl_todo;
+
+create table tbl_todo (
+                          tno int auto_increment primary key,
+                          title varchar(100) not null,
+                          dueDate date not null,
+                          writer varchar(50) not null,
+                          finished tinyint default 0
+);
+
+select * from tbl_todo;

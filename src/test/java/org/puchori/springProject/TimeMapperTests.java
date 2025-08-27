@@ -1,10 +1,10 @@
-package org.puchori.springex_20250826.sample;
+package org.puchori.springProject;
 
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.puchori.springex_20250826.mapper.TimeMapper;
-import org.puchori.springex_20250826.mapper.TimeMapper2;
+import org.puchori.springProject.mapper.TimeMapper;
+import org.puchori.springProject.mapper.TimeMapper2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -31,5 +31,6 @@ public class TimeMapperTests {
     log.info("testNow");
     log.info(timeMapper2.getNow());
   }
+
 
 }

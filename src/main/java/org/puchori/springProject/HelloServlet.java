@@ -1,4 +1,4 @@
-package org.puchori.springex_20250826;
+package org.puchori.springProject;
 
 import java.io.*;
 import javax.servlet.http.*;

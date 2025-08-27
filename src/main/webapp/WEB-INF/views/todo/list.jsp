@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: ysw
-  Date: 2025-08-26
-  Time: 오후 4:37
+  Date: 2025-08-27
+  Time: 오후 3:00
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -61,43 +61,33 @@
                 Featured
               </div>
               <div class="card-body">
-                  <form action="/todo/register" method="post">
-                      <div class="input-group mb-3">
-                          <span class="input-group-text">Title</span>
-                          <input type="text" name="title" class="form-control" placeholder="Title">
-                      </div>
-
-                      <div class="input-group mb-3">
-                          <span class="input-group-text">DueDate</span>
-                          <input type="date" name="dueDate" class="form-control" placeholder="Writer">
-                      </div>
-
-                      <div class="input-group mb-3">
-                          <span class="input-group-text">Writer</span>
-                          <input type="text" name="writer" class="form-control" placeholder="Writer">
-                      </div>
-
-                      <div class="my-4">
-                          <div class="float-end">
-                              <button type="submit" class="btn btn-primary">Submit</button>
-                              <button type="result" class="btn btn-secondary">Reset</button>
-                          </div>
-                      </div>
-                  </form>
-                  <script>
-                      const serverValidResult = {}
-                      <c:forEach items="${errors}" var="error">
-                            serverValidResult['${error.getField()}'] = '${error.defaultMessage}'
-                      </c:forEach>
-                      console.log(serverValidResult)
-
-                  </script>
-
+                <h5 class="card-title">Special title treatment</h5>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Tno</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Writer</th>
+                        <th scope="col">DueDate</th>
+                        <th scope="col">Finished</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${dtoList}" var="dto">
+                        <tr>
+                        <th scope="row"><c:out value="${dto.tno}"/></th>
+                        <td><a href="/todo/read?tno=${dto.tno}" class="text-decoration-none"><c:out value="${dto.title}"/></a></td>
+                        <td><c:out value="${dto.writer}"/></td>
+                        <td><c:out value="${dto.dueDate}"/></td>
+                        <td><c:out value="${dto.finished}"/></td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
               </div>
             </div>
 
         </div>
-
       </div>
       <!--<h1>Footer</h1>-->
       <div class="row footer">

@@ -1,4 +1,4 @@
-package org.puchori.springex_20250826.controller.exception;
+package org.puchori.springProject.controller.exception;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;

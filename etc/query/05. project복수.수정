@@ -1,0 +1,5 @@
+settings.gradle 수정할 것
+rootProject.name = "springWebMvc_20250827"
+
+페키지 명 수정
+org/puchori/springProject

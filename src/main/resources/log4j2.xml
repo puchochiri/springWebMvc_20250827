@@ -13,6 +13,9 @@
     <logger name="org.puchori" level="INFO" additivity="false">
       <appender-ref ref="console" />
     </logger>
+    <logger name="org.puchori.springProject" level="TRACE" additivity="false">
+      <appender-ref ref="console" />
+    </logger>
     <root level="INFO" additivity="false">
       <AppenderRef ref="console"/>
     </root>

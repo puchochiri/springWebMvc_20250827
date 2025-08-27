@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: ysw
-  Date: 2025-08-26
-  Time: 오후 4:37
+  Date: 2025-08-27
+  Time: 오후 3:36
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -61,37 +61,43 @@
                 Featured
               </div>
               <div class="card-body">
-                  <form action="/todo/register" method="post">
-                      <div class="input-group mb-3">
-                          <span class="input-group-text">Title</span>
-                          <input type="text" name="title" class="form-control" placeholder="Title">
-                      </div>
+                <form action="/todo/modify" method="post">
+                <div class="input-group mb-3">
+                  <div class="input-group-text">TNO</div>
+                  <input type="text" name="tno" class="form-control"
+                         value=<c:out value="${dto.tno}"></c:out> readonly>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-text">TITLE</div>
+                  <input type="text" name="title" class="form-control"
+                         value=<c:out value="${dto.title}"></c:out>>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-text">DueDate</div>
+                  <input type="date" name="dueDate" class="form-control"
+                         value=<c:out value="${dto.dueDate}"></c:out>>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-text">DueDate</div>
+                  <input type="text" name="writer" class="form-control"
+                         value=<c:out value="${dto.writer}"></c:out> readonly/>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                      Finished &nbsp;&nbsp;
+                  </label>
+                  <input type="checkbox" name="finished" class="form-check-input"
+                         ${dto.finished?"checked":""} >
+                </div>
 
-                      <div class="input-group mb-3">
-                          <span class="input-group-text">DueDate</span>
-                          <input type="date" name="dueDate" class="form-control" placeholder="Writer">
-                      </div>
-
-                      <div class="input-group mb-3">
-                          <span class="input-group-text">Writer</span>
-                          <input type="text" name="writer" class="form-control" placeholder="Writer">
-                      </div>
-
-                      <div class="my-4">
-                          <div class="float-end">
-                              <button type="submit" class="btn btn-primary">Submit</button>
-                              <button type="result" class="btn btn-secondary">Reset</button>
-                          </div>
-                      </div>
-                  </form>
-                  <script>
-                      const serverValidResult = {}
-                      <c:forEach items="${errors}" var="error">
-                            serverValidResult['${error.getField()}'] = '${error.defaultMessage}'
-                      </c:forEach>
-                      console.log(serverValidResult)
-
-                  </script>
+                <div class="my-4">
+                  <div class="float-end">
+                    <button type="button" class="btn btn-danger">Remove</button>
+                    <button type="button" class="btn btn-primary">Modify</button>
+                    <button type="button" class="btn btn-secondary">List</button>
+                  </div>
+                </div>
+                </form>
 
               </div>
             </div>
@@ -110,7 +116,48 @@
 
 
     </div>
+    <script>
+            const serverValidResult = {};
 
+      <c:forEach items="${errors}" var="error">
+        serverValidResult['${error.getField}'] = '${error.defaultMessage}'
+
+      </c:forEach>
+      console.log(serverValidResult)
+
+    </script>
+    <script>
+      const formObj = document.querySelector("form");
+
+      document.querySelector(".btn-danger").addEventListener("click",function(e) {
+        e.preventDefault()
+        e.stopPropagation()
+
+        formObj.action = "/todo/remove"
+        formObj.method = "post"
+
+        formObj.submit()
+      },false);
+
+      document.querySelector(".btn-primary").addEventListener("click",function (e){
+        e.preventDefault();
+        e.stopPropagation();
+        formObj.action = "/todo/modify";
+        formObj.method = "post";
+
+        formObj.submit();
+      },false);
+
+      document.querySelector(".btn-secondary").addEventListener("click",function (e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        self.location = "/todo/list";
+      },false);
+
+
+
+    </script>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
