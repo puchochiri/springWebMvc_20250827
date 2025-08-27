@@ -64,3 +64,16 @@ create table tbl_todo (
 );
 
 select * from tbl_todo;
+
+/* dummy data*/
+insert into tbl_todo(title,dueDate,writer) (select title, dueDate, writer from tbl_todo);
+
+select * from tbl_todo order by tno desc;
+
+select count(*) from tbl_todo;
+
+select * from tbl_todo order by tno desc limit 10;
+
+select * from tbl_todo order by tno desc limit 10, 10;
+
+
